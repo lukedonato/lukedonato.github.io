@@ -10,6 +10,13 @@ keyRight = false;
 window.addEventListener("keydown", checkKeyPressed, false);
 window.addEventListener("keyup", checkKeyLifted, false);
 
+var snd = new Audio("./assets/mm6.mp3");
+snd.addEventListener("ended", function() {
+  this.currentTime = 0;
+  this.play();
+}, false);
+snd.play();
+
 gameCanvas = document.getElementById("game-canvas");
 gameCanvas.width = width;
 gameCanvas.height = height;
@@ -29,6 +36,13 @@ function checkKeyPressed (event) {
         case 13:
             jewelJump.startGame();
             break;
+        case 84:
+
+            if (snd.paused){
+              snd.play();
+            } else {
+              snd.pause();
+            }
 
     }
 }
