@@ -45,20 +45,25 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var Game = __webpack_require__(3);
-	
+
 	width = 500;
 	height = 500;
 	keyLeft = false;
 	keyRight = false;
-	
+
+
+
 	window.addEventListener("keydown", checkKeyPressed, false);
 	window.addEventListener("keyup", checkKeyLifted, false);
-	
+
 	gameCanvas = document.getElementById("game-canvas");
 	gameCanvas.width = width;
 	gameCanvas.height = height;
 	ctx = gameCanvas.getContext("2d");
-	
+
+	var jewelJump = new Game();
+	jewelJump.splash();
+
 	function checkKeyPressed (event) {
 	    switch(event.keyCode) {
 	        case 37:
@@ -67,16 +72,17 @@
 	        case 39:
 	            keyRight = true;
 	            break;
+	        case 13:
+	            jewelJump.startGame();
+	            break;
+
 	    }
 	}
-	
+
 	function checkKeyLifted (event) {
 	  keyLeft = false;
 	  keyRight = false;
 	}
-	
-	var jewelJump = new Game();
-	jewelJump.startGame();
 
 
 /***/ },
@@ -89,7 +95,7 @@
 	  this.Y = y;
 	  this.type = type;
 	};
-	
+
 	Platform.prototype.render = function () {
 	    if (this.type === 0){
 	      ctx.fillStyle = "#738b2a";
@@ -99,7 +105,7 @@
 	    ctx.fillRect(this.X, this.Y, this.game.platformWidth, this.game.platformHeight);
 	    return this;
 	  };
-	
+
 	module.exports = Platform;
 
 
@@ -108,7 +114,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var Platform = __webpack_require__(1);
-	
+
 	var Hero = function (game) {
 	  this.image = new Image();
 	  this.image.src = "./assets/mm.gif";
@@ -121,7 +127,7 @@
 	  this.jumpVel = 0;
 	  this.fallVel = 0;
 	};
-	
+
 	  Hero.prototype = {
 	    setPos: function (x, y) {
 	      this.X = x;
@@ -159,7 +165,7 @@
 	      this.fallVel = 0;
 	    }
 	  };
-	
+
 	module.exports = Hero;
 
 
@@ -171,7 +177,7 @@
 	var Platform = __webpack_require__(1);
 	var Jewel = __webpack_require__(4);
 	var Cloud = __webpack_require__(5);
-	
+
 	var Game = function () {
 	  this.numPlatforms = 6;
 	  this.platforms = [];
@@ -184,7 +190,7 @@
 	  this.gLoop = null;
 	  this.hero = new Hero(this);
 	};
-	
+
 	Game.prototype = {
 	  clr: function () {
 	    ctx.fillStyle = "#00BFFF";
@@ -192,6 +198,14 @@
 	    ctx.rect(0, 0, width, height);
 	    ctx.closePath();
 	    ctx.fill();
+	  },
+	  splash: function () {
+	    var img = new Image();
+
+	    img.onload = function () {
+	      ctx.drawImage(img, 1, 1);
+	    };
+	    img.src = "./assets/splash.png";
 	  },
 	  createClouds: function () {
 	    for (var i = 0; i < this.numClouds; i++){
@@ -230,7 +244,7 @@
 	  },
 	  createPlatforms: function () {
 	    var position = 0, type;
-	
+
 	    for (var i = 0; i < this.numPlatforms; i++) {
 	      type = Math.floor(Math.random() * 8);
 	      this.platforms[i] = new Platform(this, Math.random() * (width-this.platformWidth), position, type);
@@ -249,26 +263,26 @@
 	  jumpCon: function () {
 	    var heroContext = this.hero;
 	    var gameContext = this;
-	
+
 	    if (heroContext.Y > height*0.5) {
 	      heroContext.setPos(heroContext.X, heroContext.Y - heroContext.jumpVel);
 	    } else {
 	      this.updateClouds(heroContext.jumpVel * 0.5);
 	      this.updateJewel(heroContext.jumpVel * 0.5);
-	
+
 	      this.platforms.forEach(function (platform, index) {
 	        platform.Y += heroContext.jumpVel;
-	
+
 	        if (platform.Y > height) {
 	          var type = Math.floor(Math.random() * 8);
-	
+
 	          gameContext.platforms[index] = new Platform(gameContext, Math.random() * (width - gameContext.platformWidth), platform.Y - height, type);
 	        }
 	      });
 	    }
-	
+
 	    heroContext.jumpVel --;
-	
+
 	    if (heroContext.jumpVel === 0) {
 	      heroContext.isJumping = false;
 	      heroContext.isFalling = true;
@@ -277,7 +291,7 @@
 	  },
 	  fallCon: function () {
 	    var heroContext = this.hero;
-	
+
 	    if (heroContext.Y < height - heroContext.height) {
 	      heroContext.setPos(heroContext.X, heroContext.Y + heroContext.fallVel);
 	      heroContext.fallVel++;
@@ -287,16 +301,16 @@
 	  },
 	  checkPlatformCollision: function(){
 	    var gameRef = this;
-	
+
 	    for (var i = 0; i < this.platforms.length; i++) {
-	
+
 	      if (
 	          (gameRef.hero.isFalling) &&
 	          !(gameRef.hero.X + gameRef.hero.width < this.platforms[i].X ||
 	            gameRef.hero.X > this.platforms[i].X + this.platformWidth ||
 	            gameRef.hero.Y + gameRef.hero.height < this.platforms[i].Y ||
 	            gameRef.hero.Y > this.platforms[i].Y + this.platformHeight)
-	
+
 	         ) {
 	            gameRef.onPlatformCollision(this.platforms[i].type);
 	            break;
@@ -324,36 +338,37 @@
 	      }
 	   },
 	   gameLoop: function () {
-	
+
 	     this.checkMove();
 	     this.clr();
 	     this.renderJewel();
 	     this.checkJewelCollision();
 	     this.renderClouds();
-	
+
 	     if (this.hero.isJumping) {
 	        this.jumpCon();
 	      }
-	
+
 	     if (this.hero.isFalling) {
 	       this.fallCon();
 	     }
-	
+
 	     this.hero.render();
-	
+
 	     this.platforms.forEach(function(platform){
 	       platform.render();
 	     });
 	     this.checkPlatformCollision();
-	
-	
-	     ctx.fillStyle = "Black";
-	     ctx.fillText("SCORE: " + this.score, 10, 10);
-	
+
+
+	     ctx.fillStyle = "White";
+	     ctx.font = "20px Courier New";
+	     ctx.fillText("SCORE: " + this.score, 2, 15);
+
 	     if (!this.gameOver()) {
 	       this.gLoop = setTimeout(this.gameLoop.bind(this), 20);
 	     } else {
-	       setTimeout(this.startGame.bind(this), 1000);
+	        setTimeout(this.splash.bind(this), 1000);
 	     }
 	   },
 	   startGame: function() {
@@ -374,7 +389,7 @@
 	     }
 	   }
 	};
-	
+
 	module.exports = Game;
 
 
@@ -383,20 +398,20 @@
 /***/ function(module, exports) {
 
 	var Jewel = function () {
-	
+
 	  var newJewel = {
 	    X: Math.random() * width,
 	    Y: Math.random() * height,
 	    hit: false,
 	    image: new Image()
 	  };
-	
+
 	  newJewel.image.src = ("./assets/jewel.png");
-	
+
 	  return newJewel;
-	
+
 	};
-	
+
 	module.exports = Jewel;
 
 
@@ -405,19 +420,19 @@
 /***/ function(module, exports) {
 
 	var Cloud = function () {
-	
+
 	  var newCloud = {
 	    X: Math.random() * width,
 	    Y: Math.random() * height,
 	    image: new Image()
 	  };
-	
+
 	  newCloud.image.src = ("./assets/cloud" + Math.floor(Math.random()*3) + ".png");
-	
+
 	  return newCloud;
-	
+
 	};
-	
+
 	module.exports = Cloud;
 
 
