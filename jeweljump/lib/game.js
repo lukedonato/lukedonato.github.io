@@ -24,6 +24,14 @@ Game.prototype = {
     ctx.closePath();
     ctx.fill();
   },
+  splash: function () {
+    var img = new Image();
+
+    img.onload = function () {
+      ctx.drawImage(img, 1, 1);
+    };
+    img.src = "./assets/splash.png";
+  },
   createClouds: function () {
     for (var i = 0; i < this.numClouds; i++){
       this.clouds.push(new Cloud());
@@ -178,13 +186,14 @@ Game.prototype = {
      this.checkPlatformCollision();
 
 
-     ctx.fillStyle = "Black";
-     ctx.fillText("SCORE: " + this.score, 10, 10);
+     ctx.fillStyle = "White";
+     ctx.font = "20px Courier New";
+     ctx.fillText("SCORE: " + this.score, 2, 15);
 
      if (!this.gameOver()) {
        this.gLoop = setTimeout(this.gameLoop.bind(this), 20);
      } else {
-       setTimeout(this.startGame.bind(this), 1000);
+        setTimeout(this.splash.bind(this), 1000);
      }
    },
    startGame: function() {
