@@ -1,0 +1,96 @@
+/*RESET*/
+html, body, div, span,h1, h2, h3, h4, h5, h6, p,
+a, img, ins, kbd, q, s, samp, b, u, i, center, ol,
+ul, li, form, label, caption, tbody, tr, th, td,
+article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav, section{
+ margin: 0;
+ padding: 0;
+ border: 0;
+ font-size: 100%;
+ font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans","Garuda","Verdana","Tahoma","sans-serif";
+ text-decoration: none;
+}
+
+a {
+  color: inherit;
+}
+
+h1 {
+  font-size: 24px;
+  color: #60bdeb;
+  margin-bottom: 10px;
+}
+
+li {
+  list-style: none;
+}
+
+input[type=submit] {
+  background: #60bdeb;
+  color: white;
+  border-radius: 8px;
+  margin-top: 5px;
+}
+
+button {
+  background: #60bdeb;
+  color: white;
+  border-radius: 8px;
+}
+
+.main-add input {
+  display: block;
+}
+
+.clrfix:after {
+  content:" ";
+  display: block;
+  clear: both;
+}
+
+.nav-bar {
+  background: #60bdeb;
+  height: 25px;
+}
+
+.nav-bar li {
+  float: left;
+  color: white;
+  padding-right: 40px;
+}
+
+.nav-bar li:not(.ws-header) {
+  margin-top: 3px;
+}
+
+
+.ws-header {
+  font-family: cursive;
+  font-size: 17px;
+}
+
+.main {
+  width: 600px;
+  margin: 10px auto;
+}
+
+.red {
+  color: red;
+}
+
+.index-item {
+  border: 1px dashed #60bdeb;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.cart-total {
+  font-weight: bold;
+}
