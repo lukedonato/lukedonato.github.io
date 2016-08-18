@@ -23,7 +23,7 @@ var InventoryStore = require('./stores/inventory_store');
 var Router = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={Shop}/>
+      <IndexRoute component={AddForm}/>
       <Route path="add" component={AddForm}/>
       <Route path="shop" component={Shop}/>
       <Route path="cart" component={Cart}/>
