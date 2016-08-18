@@ -26,7 +26,7 @@ var Cart = React.createClass({
 
     if (total === 0) {
       total = "";
-      display = <p>Buy something silly!</p>;
+      display = <p>Buy something, silly!</p>;
     } else {
       total = "Total $" + total.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
       display = <ul>

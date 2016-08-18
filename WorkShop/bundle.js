@@ -71,7 +71,7 @@
 	  React.createElement(
 	    Route,
 	    { path: '/', component: App },
-	    React.createElement(IndexRoute, { component: Shop }),
+	    React.createElement(IndexRoute, { component: AddForm }),
 	    React.createElement(Route, { path: 'add', component: AddForm }),
 	    React.createElement(Route, { path: 'shop', component: Shop }),
 	    React.createElement(Route, { path: 'cart', component: Cart })
@@ -34245,7 +34245,7 @@
 	      display = React.createElement(
 	        'p',
 	        null,
-	        'Buy something silly!'
+	        'Buy something, silly!'
 	      );
 	    } else {
 	      total = "Total $" + total.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
