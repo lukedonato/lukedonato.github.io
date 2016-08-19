@@ -54,16 +54,13 @@
 	var Route = ReactRouter.Route;
 	var IndexRoute = ReactRouter.IndexRoute;
 	var hashHistory = ReactRouter.hashHistory;
+	var browserHistory = ReactRouter.browserHistory;
 	
 	//Components
 	var App = __webpack_require__(238);
 	var Shop = __webpack_require__(240);
 	var AddForm = __webpack_require__(266);
 	var Cart = __webpack_require__(267);
-	
-	//testing
-	
-	var InventoryStore = __webpack_require__(241);
 	
 	var Router = React.createElement(
 	  Router,

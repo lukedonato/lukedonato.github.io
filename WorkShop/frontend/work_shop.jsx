@@ -8,17 +8,13 @@ var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
 var hashHistory = ReactRouter.hashHistory;
+var browserHistory = ReactRouter.browserHistory;
 
 //Components
 var App = require('./components/App');
 var Shop = require('./components/Shop');
 var AddForm = require('./components/AddForm');
 var Cart = require('./components/Cart');
-
-//testing
-
-var InventoryStore = require('./stores/inventory_store');
-
 
 var Router = (
   <Router history={hashHistory}>
