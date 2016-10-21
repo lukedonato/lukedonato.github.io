@@ -5,8 +5,6 @@ height = 500;
 keyLeft = false;
 keyRight = false;
 
-
-
 window.addEventListener("keydown", checkKeyPressed, false);
 window.addEventListener("keyup", checkKeyLifted, false);
 

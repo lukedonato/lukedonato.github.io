@@ -10,7 +10,6 @@ var Jewel = function () {
   newJewel.image.src = ("./assets/jewel.png");
 
   return newJewel;
-
 };
 
 module.exports = Jewel;
