@@ -72,8 +72,9 @@
 		];
 
 		const container = document.getElementById("funstuff");
+		const timeouts = {};
 
-		for (const node of nodes) {
+		for (const [index, node] of nodes.entries()) {
 			const div = document.createElement("div");
 			const originalLeft = `${node.left + 90}px`;
 			const originalTop = `${node.top + 90}px`;
@@ -92,11 +93,16 @@
 
 				e.target.style.top = currentTop + getRandom() + "px";
 				e.target.style.left = currentLeft + getRandom() + "px";
-				setTimeout(() => {
+				if (timeouts[index]) {
+					clearTimeout(timeouts[index]);
+				}
+
+				const timeout = setTimeout(() => {
 					const original = e.target.getAttribute("data-original-location").split("-");
 					e.target.style.top = original[0];
 					e.target.style.left = original[1];
 				}, 3000);
+				timeouts[index] = timeout;
 			});
 			container.append(div);
 		}
