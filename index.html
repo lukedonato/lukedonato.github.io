@@ -1,469 +1,122 @@
 <!DOCTYPE HTML>
 
 <html>
-	<head>
-		<title>Luke Donato</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	</head>
-	<body id="top">
+<style>
+	body {
+		background: black;
+		color: white;
+	}
 
-		<!-- Header -->
-			<header id="header">
-				<a href="#" class="image avatar"><img src="images/Luke_Donato.jpg" alt="" /></a>
-				<h1><strong>Luke Donato</strong><br />
-					Web Developer
-				</h1>
-			</header>
+	body a {
+		text-decoration: none;
+		color: white;
+	}
+</style>
+<script>
+	const colors = [
+		"#fe0000",
+		"#fdfe02",
+		"#0bff01",
+		"#011efe",
+		"#fe00f6"
+	];
 
-		<!-- Main -->
-			<div id="main">
+	// const getRandom = () => Math.floor(Math.random() * (100 + 1)) - 60;
+	const getRandom = () => Math.floor(Math.random() * (100 - - 100 + 1)) + -100
+	const parseTopLeftNum = str => parseInt(str.slice(0, str.length - 2), 10);
 
-				<!-- One -->
-					<section id="one">
-						<header class="major">
-						</header>
-						<p>I am a web developer based in NYC. I mainly utilize Ruby on Rails, JavaScript, and React to create apps that make use of RESTful APIs and the MVC architecture.
-							I'm currently looking to further develop my skills and learn new technologies with an organization that has big ideas. </p>
+	window.onload = () => {
+		const nodes = [
+			{ top: 0, left: 0 },
+			{ top: 20, left: 0 },
+			{ top: 40, left: 0 },
+			{ top: 60, left: 0 },
+			{ top: 80, left: 0 },
+			{ top: 80, left: 20 },
+			{ top: 80, left: 40 },
 
-						<p>In my spare time I enjoy activities that require analyzing payoffs such as poker and puzzle games.</p>
-						<ul class="actions">
-							<li><a href="assets/resume.pdf" class="button">Resume</a></li>
-							<li><a href="#recent_projects" class="button">Projects</a></li>
-							<li><a href="#contact" class="button">Contact</a></li>
-						</ul>
-					</section>
+			{ top: 0, left: 80 },
+			{ top: 20, left: 80 },
+			{ top: 40, left: 80 },
+			{ top: 60, left: 80 },
+			{ top: 80, left: 80 },
+			{ top: 80, left: 100 },
+			{ top: 80, left: 120 },
+			{ top: 0, left: 120 },
+			{ top: 20, left: 120 },
+			{ top: 40, left: 120 },
+			{ top: 60, left: 120 },
 
-					<section id="skills">
-						<h2>Skills/Technologies</h2>
-						<div class="row">
-							<div class="12u 12u$(small)">
-								<img class = "logo" src="images/logos/ruby.png" alt="" />
-								<img class = "logo" src="images/logos/rails.png" alt="" />
-								<img class = "logo" src="images/logos/javascript.png" alt="" />
-								<img class = "logo" src="images/logos/react.png" alt="" />
-							</div>
-							<div class="12u$ 12u$(small)">
-								<img class = "logo" src="images/logos/flux.png" alt="" />
-								<img class = "logo" src="images/logos/postgresql.png" alt="" />
-								<img class = "logo" src="images/logos/HTML5.png" alt="" />
-								<img class = "logo" src="images/logos/aws.png" alt="" />
-							</div>
-						</div>
-					</section>
+			{ top: 0, left: 160 },
+			{ top: 20, left: 160 },
+			{ top: 40, left: 160 },
+			{ top: 60, left: 160 },
+			{ top: 80, left: 160 },
+			{ top: 40, left: 180 },
+			{ top: 20, left: 200 },
+			{ top: 60, left: 200 },
+			{ top: 0, left: 220 },
+			{ top: 80, left: 220 },
 
-				<!-- Two -->
-					<section id="recent_projects">
-						<h2>Recent Projects</h2>
-						<div class="row">
-							<article class="6u 12u$(xsmall) work-item">
-								<a target="_blank" href="http://soundstation.io" class="image fit thumb"><img src="images/thumbs/01.png" alt="" /></a>
-								<h3><a href="http://soundstation.io">SoundStation</a></h3>
-								<p><a href="http://soundstation.io">Live</a> | <a href="http://github.com/lukedonato/SoundStation">GitHub</a> </p>
-								<p>A SoundCloud clone written in Rails, React, and JavaScript.</p>
-							</article>
-							<article class="6u$ 12u$(xsmall) work-item">
-								<a target= "_blank" href="http://github.com/lukedonato/kingDOM" class="image fit thumb"><img src="images/thumbs/02.png" alt="" /></a>
-								<h3><a href="http://github.com/lukedonato/kingDOM">kingDOM</a></h3>
-								<p>Lightweight app written in JavaScript that allows users to manipulate the DOM and send AJAX requests.</p>
-							</article>
-							<article class="6u 12u$(xsmall) work-item">
-								<a target="_blank" href="http://lukedonato.com/jeweljump" class="image fit thumb"><img src="images/thumbs/03.png" alt="" /></a>
-								<h3><a href="http://lukedonato.com/jeweljump">JewelJump</a></h3>
-								<p><a href="http://lukedonato.com/jeweljump">Live</a>  |  <a href="http://github.com/lukedonato/JewelJump">GitHub</a> </p>
-								<p>Web game written in JavaScript based on the classic doodleJump.</p>
-							</article>
-							<!-- <article class="6u$ 12u$(xsmall) work-item">
-								<a href="images/fulls/04.jpg" class="image fit thumb"><img src="images/thumbs/04.jpg" alt="" /></a>
-								<h3>Quam neque phasellus</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article> -->
-							<!-- <article class="6u 12u$(xsmall) work-item">
-								<a href="images/fulls/05.jpg" class="image fit thumb"><img src="images/thumbs/05.jpg" alt="" /></a>
-								<h3>Nunc enim commodo aliquet</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="6u$ 12u$(xsmall) work-item">
-								<a href="images/fulls/06.jpg" class="image fit thumb"><img src="images/thumbs/06.jpg" alt="" /></a>
-								<h3>Risus ornare lacinia</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article> -->
-						</div>
-					</section>
 
-				<!-- Three -->
-					<section id="contact">
-						<h2>Contact</h2>
-						<p>Please don't hesitate to contact me for (almost) anything!</p>
-						<div class="row">
-							<!-- <div class="8u 12u$(small)">
-								<form method="post" action="#">
-									<div class="row uniform 50%">
-										<div class="6u 12u$(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
-										<div class="6u$ 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
-										<div class="12u$"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
-									</div>
-								</form> -->
-								<!-- <ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul> -->
-							</div>
-							<div class="4u$ 12u$(small)">
-								<ul class="labeled-icons">
-									<li>
-										<h3 class="icon fa-envelope-o"><span class="label">Phone</span></h3>
-										<a href="mailto:lukedonato@gmail.com">lukedonato@gmail.com</a>
-									</li>
-									<li>
-										<h3 class="icon fa-mobile"><span class="label">Phone</span></h3>
-										973-270-3614
-									</li>
-								</ul>
-							</div>
-						</div>
-					</section>
+			{ top: 0, left: 260 },
+			{ top: 0, left: 280 },
+			{ top: 0, left: 300 },
+			{ top: 20, left: 260 },
+			{ top: 40, left: 280 },
+			{ top: 40, left: 300 },
+			{ top: 40, left: 260 },
+			{ top: 60, left: 260 },
+			{ top: 80, left: 260 },
+			{ top: 80, left: 280 },
+			{ top: 80, left: 300 },
+		];
 
-				<!-- Four -->
-				<!--
-					<section id="four">
-						<h2>Elements</h2>
+		const container = document.getElementById("funstuff");
 
-						<section>
-							<h4>Text</h4>
-							<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-							This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-							This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-							<hr />
-							<header>
-								<h4>Heading with a Subtitle</h4>
-								<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-							</header>
-							<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-							<header>
-								<h5>Heading with a Subtitle</h5>
-								<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-							</header>
-							<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-							<hr />
-							<h2>Heading Level 2</h2>
-							<h3>Heading Level 3</h3>
-							<h4>Heading Level 4</h4>
-							<h5>Heading Level 5</h5>
-							<h6>Heading Level 6</h6>
-							<hr />
-							<h5>Blockquote</h5>
-							<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-							<h5>Preformatted</h5>
-							<pre><code>i = 0;
+		for (const node of nodes) {
+			const div = document.createElement("div");
+			const originalLeft = `${node.left + 90}px`;
+			const originalTop = `${node.top + 90}px`;
 
-while (!deck.isInOrder()) {
-print 'Iteration ' + i;
-deck.shuffle();
-i++;
-}
+			div.className = "node";
+			div.style.height = "20px";
+			div.style.width = "20px";
+			div.style.position = "absolute";
+			div.style.top = originalTop;
+			div.style.left = originalLeft;
+			div.style.background = colors[Math.floor(Math.random() * colors.length)];
+			div.style.transition = "all 0.5s ease";
+			div.setAttribute("data-original-location", `${originalTop}-${originalLeft}`);
+			div.addEventListener("mouseover", (e) => {
+				const currentTop = parseTopLeftNum(e.target.style.top);
+				const currentLeft = parseTopLeftNum(e.target.style.left);
 
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-						</section>
+				e.target.style.top = currentTop + getRandom() + "px";
+				e.target.style.left = currentLeft + getRandom() + "px";
+				setTimeout(() => {
+					const original = e.target.getAttribute("data-original-location").split("-");
+					e.target.style.top = original[0];
+					e.target.style.left = original[1];
+				}, 3000);
+			});
+			container.append(div);
+		}
+	}
 
-						<section>
-							<h4>Lists</h4>
-							<div class="row">
-								<div class="6u 12u$(xsmall)">
-									<h5>Unordered</h5>
-									<ul>
-										<li>Dolor pulvinar etiam magna etiam.</li>
-										<li>Sagittis adipiscing lorem eleifend.</li>
-										<li>Felis enim feugiat dolore viverra.</li>
-									</ul>
-									<h5>Alternate</h5>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam magna etiam.</li>
-										<li>Sagittis adipiscing lorem eleifend.</li>
-										<li>Felis enim feugiat dolore viverra.</li>
-									</ul>
-								</div>
-								<div class="6u$ 12u$(xsmall)">
-									<h5>Ordered</h5>
-									<ol>
-										<li>Dolor pulvinar etiam magna etiam.</li>
-										<li>Etiam vel felis at lorem sed viverra.</li>
-										<li>Felis enim feugiat dolore viverra.</li>
-										<li>Dolor pulvinar etiam magna etiam.</li>
-										<li>Etiam vel felis at lorem sed viverra.</li>
-										<li>Felis enim feugiat dolore viverra.</li>
-									</ol>
-									<h5>Icons</h5>
-									<ul class="icons">
-										<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-										<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-										<li><a href="#" class="icon fa-tumblr"><span class="label">Tumblr</span></a></li>
-									</ul>
-								</div>
-							</div>
-							<h5>Actions</h5>
-							<ul class="actions">
-								<li><a href="#" class="button special">Default</a></li>
-								<li><a href="#" class="button">Default</a></li>
-							</ul>
-							<ul class="actions small">
-								<li><a href="#" class="button special small">Small</a></li>
-								<li><a href="#" class="button small">Small</a></li>
-							</ul>
-							<div class="row">
-								<div class="6u 12u$(small)">
-									<ul class="actions vertical">
-										<li><a href="#" class="button special">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</div>
-								<div class="6u$ 12u$(small)">
-									<ul class="actions vertical small">
-										<li><a href="#" class="button special small">Small</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-								</div>
-								<div class="6u 12u$(small)">
-									<ul class="actions vertical">
-										<li><a href="#" class="button special fit">Default</a></li>
-										<li><a href="#" class="button fit">Default</a></li>
-									</ul>
-								</div>
-								<div class="6u$ 12u$(small)">
-									<ul class="actions vertical small">
-										<li><a href="#" class="button special small fit">Small</a></li>
-										<li><a href="#" class="button small fit">Small</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
+</script>
 
-						<section>
-							<h4>Table</h4>
-							<h5>Default</h5>
-							<div class="table-wrapper">
-								<table>
-									<thead>
-										<tr>
-											<th>Name</th>
-											<th>Description</th>
-											<th>Price</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Item One</td>
-											<td>Ante turpis integer aliquet porttitor.</td>
-											<td>29.99</td>
-										</tr>
-										<tr>
-											<td>Item Two</td>
-											<td>Vis ac commodo adipiscing arcu aliquet.</td>
-											<td>19.99</td>
-										</tr>
-										<tr>
-											<td>Item Three</td>
-											<td> Morbi faucibus arcu accumsan lorem.</td>
-											<td>29.99</td>
-										</tr>
-										<tr>
-											<td>Item Four</td>
-											<td>Vitae integer tempus condimentum.</td>
-											<td>19.99</td>
-										</tr>
-										<tr>
-											<td>Item Five</td>
-											<td>Ante turpis integer aliquet porttitor.</td>
-											<td>29.99</td>
-										</tr>
-									</tbody>
-									<tfoot>
-										<tr>
-											<td colspan="2"></td>
-											<td>100.00</td>
-										</tr>
-									</tfoot>
-								</table>
-							</div>
+<head>
+	<title></title>
+</head>
 
-							<h5>Alternate</h5>
-							<div class="table-wrapper">
-								<table class="alt">
-									<thead>
-										<tr>
-											<th>Name</th>
-											<th>Description</th>
-											<th>Price</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Item One</td>
-											<td>Ante turpis integer aliquet porttitor.</td>
-											<td>29.99</td>
-										</tr>
-										<tr>
-											<td>Item Two</td>
-											<td>Vis ac commodo adipiscing arcu aliquet.</td>
-											<td>19.99</td>
-										</tr>
-										<tr>
-											<td>Item Three</td>
-											<td> Morbi faucibus arcu accumsan lorem.</td>
-											<td>29.99</td>
-										</tr>
-										<tr>
-											<td>Item Four</td>
-											<td>Vitae integer tempus condimentum.</td>
-											<td>19.99</td>
-										</tr>
-										<tr>
-											<td>Item Five</td>
-											<td>Ante turpis integer aliquet porttitor.</td>
-											<td>29.99</td>
-										</tr>
-									</tbody>
-									<tfoot>
-										<tr>
-											<td colspan="2"></td>
-											<td>100.00</td>
-										</tr>
-									</tfoot>
-								</table>
-							</div>
-						</section>
+<body>
+	<a href="mailto:lukedonato@gmail.com">lukedonato@gmail.com</a>
+	<div 
+		id="funstuff"
+		style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 300px; width: 500px;"
+	>
+	</div>
+</body>
 
-						<section>
-							<h4>Buttons</h4>
-							<ul class="actions">
-								<li><a href="#" class="button special">Special</a></li>
-								<li><a href="#" class="button">Default</a></li>
-							</ul>
-							<ul class="actions">
-								<li><a href="#" class="button big">Big</a></li>
-								<li><a href="#" class="button">Default</a></li>
-								<li><a href="#" class="button small">Small</a></li>
-							</ul>
-							<ul class="actions fit">
-								<li><a href="#" class="button special fit">Fit</a></li>
-								<li><a href="#" class="button fit">Fit</a></li>
-							</ul>
-							<ul class="actions fit small">
-								<li><a href="#" class="button special fit small">Fit + Small</a></li>
-								<li><a href="#" class="button fit small">Fit + Small</a></li>
-							</ul>
-							<ul class="actions">
-								<li><a href="#" class="button special icon fa-download">Icon</a></li>
-								<li><a href="#" class="button icon fa-download">Icon</a></li>
-							</ul>
-							<ul class="actions">
-								<li><span class="button special disabled">Special</span></li>
-								<li><span class="button disabled">Default</span></li>
-							</ul>
-						</section>
-
-						<section>
-							<h4>Form</h4>
-							<form method="post" action="#">
-								<div class="row uniform 50%">
-									<div class="6u 12u$(xsmall)">
-										<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
-									</div>
-									<div class="6u$ 12u$(xsmall)">
-										<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
-									</div>
-									<div class="12u$">
-										<div class="select-wrapper">
-											<select name="demo-category" id="demo-category">
-												<option value="">- Category -</option>
-												<option value="1">Manufacturing</option>
-												<option value="1">Shipping</option>
-												<option value="1">Administration</option>
-												<option value="1">Human Resources</option>
-											</select>
-										</div>
-									</div>
-									<div class="4u 12u$(small)">
-										<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-										<label for="demo-priority-low">Low Priority</label>
-									</div>
-									<div class="4u 12u$(small)">
-										<input type="radio" id="demo-priority-normal" name="demo-priority">
-										<label for="demo-priority-normal">Normal Priority</label>
-									</div>
-									<div class="4u$ 12u(small)">
-										<input type="radio" id="demo-priority-high" name="demo-priority">
-										<label for="demo-priority-high">High Priority</label>
-									</div>
-									<div class="6u 12u$(small)">
-										<input type="checkbox" id="demo-copy" name="demo-copy">
-										<label for="demo-copy">Email me a copy of this message</label>
-									</div>
-									<div class="6u$ 12u$(small)">
-										<input type="checkbox" id="demo-human" name="demo-human" checked>
-										<label for="demo-human">I am a human and not a robot</label>
-									</div>
-									<div class="12u$">
-										<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-									</div>
-									<div class="12u$">
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="special" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</div>
-								</div>
-							</form>
-						</section>
-
-						<section>
-							<h4>Image</h4>
-							<h5>Fit</h5>
-							<div class="box alt">
-								<div class="row 50% uniform">
-									<div class="12u$"><span class="image fit"><img src="images/fulls/05.jpg" alt="" /></span></div>
-									<div class="4u"><span class="image fit"><img src="images/thumbs/01.jpg" alt="" /></span></div>
-									<div class="4u"><span class="image fit"><img src="images/thumbs/02.jpg" alt="" /></span></div>
-									<div class="4u$"><span class="image fit"><img src="images/thumbs/03.jpg" alt="" /></span></div>
-									<div class="4u"><span class="image fit"><img src="images/thumbs/04.jpg" alt="" /></span></div>
-									<div class="4u"><span class="image fit"><img src="images/thumbs/05.jpg" alt="" /></span></div>
-									<div class="4u$"><span class="image fit"><img src="images/thumbs/06.jpg" alt="" /></span></div>
-									<div class="4u"><span class="image fit"><img src="images/thumbs/03.jpg" alt="" /></span></div>
-									<div class="4u"><span class="image fit"><img src="images/thumbs/02.jpg" alt="" /></span></div>
-									<div class="4u$"><span class="image fit"><img src="images/thumbs/01.jpg" alt="" /></span></div>
-								</div>
-							</div>
-							<h5>Left &amp; Right</h5>
-							<p><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-							<p><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-						</section>
-
-					</section>
-				-->
-
-			</div>
-
-		<!-- Footer -->
-			<footer id="footer">
-				<ul class="icons">
-					<li><a href="http://github.com/lukedonato" class="icon fa-github"><span class="label">Github</span></a></li>
-					<li><a href="mailto:lukedonato@gmail.com" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-					<li><a href="http://linkedin.com/in/lukedonato" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-				</ul>
-			</footer>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
-	</body>
 </html>
