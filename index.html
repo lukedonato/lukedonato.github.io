@@ -21,7 +21,7 @@
 		"#fe00f6"
 	];
 
-	const getRandom = () => Math.floor(Math.random() * (100 - - 100 + 1)) + -100
+	const getRandom = () => Math.floor(Math.random() * 201) - 100;
 	const parseTopLeftNum = str => parseInt(str.slice(0, str.length - 2), 10);
 
 	window.onload = () => {
@@ -78,14 +78,13 @@
 			const originalLeft = `${node.left + 90}px`;
 			const originalTop = `${node.top + 90}px`;
 
-			div.className = "node";
 			div.style.height = "20px";
 			div.style.width = "20px";
 			div.style.position = "absolute";
 			div.style.top = originalTop;
 			div.style.left = originalLeft;
 			div.style.background = colors[Math.floor(Math.random() * colors.length)];
-			div.style.transition = "all 0.5s ease";
+			div.style.transition = "all 0.5s ease-in";
 			div.setAttribute("data-original-location", `${originalTop}-${originalLeft}`);
 			div.addEventListener("mouseover", (e) => {
 				const currentTop = parseTopLeftNum(e.target.style.top);
