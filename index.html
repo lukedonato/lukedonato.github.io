@@ -74,7 +74,7 @@
 		const container = document.getElementById("funstuff");
 		const timeouts = {};
 
-		for (const [index, node] of nodes.entries()) {
+		for (const node of nodes) {
 			const div = document.createElement("div");
 			const originalLeft = `${node.left + 90}px`;
 			const originalTop = `${node.top + 90}px`;
@@ -87,25 +87,28 @@
 			div.style.background = colors[Math.floor(Math.random() * colors.length)];
 			div.style.transition = "all 0.5s ease-in";
 			div.setAttribute("data-original-location", `${originalTop}-${originalLeft}`);
-			div.addEventListener("mouseover", (e) => {
-				const currentTop = parseTopLeftNum(e.target.style.top);
-				const currentLeft = parseTopLeftNum(e.target.style.left);
-
-				e.target.style.top = currentTop + getRandom() + "px";
-				e.target.style.left = currentLeft + getRandom() + "px";
-				if (timeouts[index]) {
-					clearTimeout(timeouts[index]);
-				}
-
-				const timeout = setTimeout(() => {
-					const original = e.target.getAttribute("data-original-location").split("-");
-					e.target.style.top = original[0];
-					e.target.style.left = original[1];
-				}, 3000);
-				timeouts[index] = timeout;
-			});
 			container.append(div);
 		}
+
+		container.addEventListener("mouseover", (e) => {
+			if (!e.target.getAttribute("data-original-location")) return;
+			const currentTop = parseTopLeftNum(e.target.style.top);
+			const currentLeft = parseTopLeftNum(e.target.style.left);
+
+			e.target.style.top = currentTop + getRandom() + "px";
+			e.target.style.left = currentLeft + getRandom() + "px";
+			if (timeouts[e.target.getAttribute("data-original-location")]) {
+				clearTimeout(timeouts[e.target.getAttribute("data-original-location")]);
+			}
+
+			const timeout = setTimeout(() => {
+				const original = e.target.getAttribute("data-original-location").split("-");
+				e.target.style.top = original[0];
+				e.target.style.left = original[1];
+			}, 3000);
+
+			timeouts[e.target.getAttribute("data-original-location")] = timeout;
+		});
 	}
 
 </script>
